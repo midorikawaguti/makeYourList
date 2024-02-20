@@ -21,23 +21,32 @@
 
   &.btn-danger,
   &.btn-danger-circle{
-    color: var(--white);
-    background: var(--red);
+    color: var(--black-010);
+    background:  rgb(233, 236, 133);
 
     &:hover{
       background-color: var(--red-010);
     }
   }
 
+  &.btn-edit-circle{
+    background: rgb(233, 236, 133);
+
+    &:hover{
+      background-color: var(--white);
+    }
+  }
+
   &.btn-primary,
   &.btn-danger{
-    font-size: 16px;
+    font-size: 18px;
     border-radius: 50px;
     padding: 10px 20px;
   }
 
   &.btn-primary-circle,
-  &.btn-danger-circle{
+  &.btn-danger-circle,
+  &.btn-edit-circle{
    width: 30px;
    height: 30px;
    border-radius:50px;
@@ -51,7 +60,7 @@
 
   &.btn-primary-circle{
     &::after{
-      content: url(../../assets/icons/Add.png);
+      // content: url(../../assets/icons/Add.png);
       top: 3px;
       position: relative;
     }
@@ -59,7 +68,15 @@
 
   &.btn-danger-circle{
     &::after{
-      content: url(../../assets/icons/Delete.png);
+      // content: url(../../assets/icons/Delete.png);
+      top: 3px;
+      position: relative;
+    }
+  }
+
+  &.btn-edit-circle{
+    &::after{
+      content: url(../../assets/icons/Pencil.png);
       top: 3px;
       position: relative;
     }

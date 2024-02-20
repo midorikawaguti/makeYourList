@@ -1,19 +1,29 @@
 <header>
   <div class = "container-header">
     <a routerLink = "/" class = logo>
-      <img src="../../../../assets/img/Logo.png" alt="Description of the image" />
+      <img src="../../../../assets/img/Logo.png" alt="logo" />
     </a>
-
+      <h1> ListName </h1>
     <nav>
       <ul>
-        <li> <a routerLink = "/lists"> Lists </a> </li>
+
         <li class="profile">
-           <a routerLink = "/profile"> Tatiana Kawaguti </a>
+          <div> Lists </div>
+            <div class="menu" *ngIf = "(listsArr$|async) as listsArr">
+              <a routerLink="/Lists" *ngFor="let list of listsArr">
+                {{ list.listName }}
+              </a>
+            </div>
+        </li>
+
+        <li class="profile">
+          <div> Tatiana Kawaguti </div>
            <div class="menu">
-            <a routerLink="/Settings"> Settings</a>
-            <a>Logout</a>
+              <a routerLink="/Settings"> Settings</a>
+              <a>Logout</a>
            </div>
         </li>
+
       </ul>
     </nav>
   </div>

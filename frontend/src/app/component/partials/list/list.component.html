@@ -1,1 +1,56 @@
-<h1>Lists!</h1>
+
+<div class="list-container" *ngIf="(listsArr$ | async) as listsArr">
+  <ul>
+    <li *ngFor = "let list of listsArr">
+
+      <div class="name-lists">
+        <ng-container *ngIf="!list.isEditing; else editInput">
+          <ng-container *ngIf="!list.listStatus; else checkList">
+            <div [ngClass]="{ 'checkList':list.listStatus }"></div>
+          </ng-container>
+
+          <input type="checkbox"
+          placeholder="List Name" >
+          {{list.listName }}
+        </ng-container>
+
+        <ng-template #editInput>
+          <input type="text"
+                 placeholder="New List Name"
+                 [value]="list.listName"
+                 (blur)="onSaveEdit(list.listID, editName.value)"
+                 (keyup.enter)="onSaveEdit(list.listID, editName.value)"
+                 (checkbox)="onCheckList(list)"
+                 #editName>
+        </ng-template>
+
+        <ng-template #checkList>
+
+        </ng-template>
+
+
+
+      </div>
+
+      <div class="btn-lists">
+        <button
+          class="btn btn-danger-circle"
+          title="Delete List Title"
+          (click)="onRemoveList(list.listID)"> X
+        </button>
+
+        <button
+          class="btn btn-edit-circle"
+          title="Edit List Title"
+          (click)="onEditList(list)">
+        </button>
+
+
+      </div>
+
+    </li>
+  </ul>
+
+</div>
+
+
