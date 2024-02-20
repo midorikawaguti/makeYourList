@@ -43,16 +43,11 @@ export class ListComponent {
 
     onEditList(list: List) {
       list.isEditing = true;
-      return this.editListName.nativeElement.focus();
     }
 
     onCheckList(list: List) {
-      if(list.listStatus === true){
-        list.listStatus = false;
-      }
-      else{
-        list.listStatus = true;
-     }
+      list.listStatus === !list.listName;
+
     }
 
     onSaveEdit(listID: number, newListName: string) {

@@ -9,9 +9,17 @@
             <div [ngClass]="{ 'checkList':list.listStatus }"></div>
           </ng-container>
 
-          <input type="checkbox"
-          placeholder="List Name" >
-          {{list.listName }}
+          <div class="item-container">
+            <input type="checkbox"
+            placeholder="List Name"
+            [(ngModel)]="list.listStatus"
+            (change)="onCheckList(list)">
+
+            <span [ngClass]="{'checked': list.listStatus}">
+              {{list.listName }}
+            </span>
+          </div>
+
         </ng-container>
 
         <ng-template #editInput>
@@ -20,7 +28,6 @@
                  [value]="list.listName"
                  (blur)="onSaveEdit(list.listID, editName.value)"
                  (keyup.enter)="onSaveEdit(list.listID, editName.value)"
-                 (checkbox)="onCheckList(list)"
                  #editName>
         </ng-template>
 
