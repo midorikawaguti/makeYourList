@@ -1,10 +1,12 @@
 export class ListItem{
-  constructor( dateCreated: Date, itemStatus: string ){
-    this.dateCreated = dateCreated;
-    this.itemStatus = itemStatus;
+  constructor( itemName: string, dateCreated: Date, itemStatus: string ){
+    this.ItemName = itemName;
+    this.DateCreated = dateCreated;
+    this.ItemStatus = itemStatus;
   }
 
-  dateCreated: Date;
-  itemStatus: string;
+  ItemName: string;
+  DateCreated: Date;
+  ItemStatus: string ;
 
 }

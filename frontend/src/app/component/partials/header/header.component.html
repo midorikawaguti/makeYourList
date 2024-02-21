@@ -11,7 +11,7 @@
           <div> Lists </div>
             <div class="menu" *ngIf = "(listsArr$|async) as listsArr">
               <a routerLink="/Lists" *ngFor="let list of listsArr">
-                {{ list.listName }}
+                {{ list.ListName }}
               </a>
             </div>
         </li>

@@ -20,7 +20,17 @@ export class CreateListComponent {
 
   OnCreateList(listName: string): void {
     const newlistID = this.listService.listsArray.length +1;
-    const newList = new List(newlistID, listName, this.listStatus, this.listItems);
+    const newList = new List(newlistID, listName, this.listItems);
+    this.listService.AddList(newList);
+
+    this.inputListName.nativeElement.value = '';
+
+    console.log(newList);
+  }
+
+  OnCreateItem(itemName: string): void {
+    const newlistID = this.listService.listsArray.length +1;
+    const newList = new List(newlistID, itemName, this.listItems);
     this.listService.AddList(newList);
 
     this.inputListName.nativeElement.value = '';

@@ -1,0 +1,6 @@
+<div *ngIf="(itemsArr$ | async) as items">
+  <ul>
+    <li *ngFor="let item of items">{{ item.ItemName }}</li>
+  </ul>
+</div>
+

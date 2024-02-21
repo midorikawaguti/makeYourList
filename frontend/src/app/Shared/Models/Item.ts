@@ -1,9 +1,12 @@
 export class Item{
-  constructor( itemName: string){
-    this.itemName = itemName;
+  constructor( itemName: string, dateCreated: Date ){
+    this.ItemName = itemName;
+    this.DateCreated = dateCreated;
+
   }
 
-  itemName:string;
-
+  ItemName: string;
+  DateCreated: Date;
+  ItemStatus: boolean = false;
 
 }

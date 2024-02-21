@@ -2,16 +2,15 @@ import { Item } from "./Item";
 
 export class List{
 
-  constructor( listID: number , listName: string, listStatus: boolean, listItems : Item[]){
-    this.listID = listID;
-    this.listName = listName;
-    this.listStatus = listStatus;
-    this.items = listItems;
+  constructor( listID: number , listName: string, listItems : Item[]){
+    this.ListID = listID;
+    this.ListName = listName;
+    this.Items = listItems;
   }
 
-  listID: number;
-  listName:string;
-  listStatus: boolean = false; //true = all items checked
-  items: Item[] = [];
-  isEditing: boolean = false;
+  ListID: number;
+  ListName:string;
+  ListStatus: boolean = false; //true = all items checked
+  Items: Item[] = [];
+  IsEditing: boolean = false;
 }
