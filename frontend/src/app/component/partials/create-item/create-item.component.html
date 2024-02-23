@@ -1,0 +1,14 @@
+<div class="create-list-container">
+  <input
+    type="text"
+    (keyup.enter)="OnCreateItem(inputName.value)"
+    placeholder="Item Name"
+    autofocus
+    #inputName>
+
+  <button
+    class = "btn btn-primary-circle"
+    title="Add New List"
+    (click)="OnCreateItem(inputName.value)"
+    > + </button>
+</div>

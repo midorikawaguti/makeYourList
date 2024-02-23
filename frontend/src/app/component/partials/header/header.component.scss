@@ -1,0 +1,58 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header {
+  background-color: var(--primary);
+  width: 100%;
+}
+
+.container-header {
+  min-height: 50px;
+  min-width: auto;
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+ul{
+  display: flex;
+  gap: 1rem;
+}
+
+img{
+  height: 60px;
+  width: auto;
+}
+
+
+.menu {
+  display: none;
+}
+
+.profile:hover .menu{
+  display: block;
+}
+
+.profile{
+  position: relative;
+}
+
+.menu a{
+  width: 100%;
+  display: flex;
+  margin: 10px;
+}
+
+
+
+
+
+
+
+
+

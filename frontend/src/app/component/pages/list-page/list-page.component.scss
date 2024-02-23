@@ -1,0 +1,40 @@
+li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  margin: 10px;
+  background-color: rgb(233, 236, 133);
+  border-radius: 10px;
+}
+
+.list-container {
+  min-height: 50px;
+  padding: 10px;
+}
+
+
+input[type="checkbox"] {
+  border-radius: 50px;
+  cursor: pointer;
+  transform: scale(1.5);
+  margin-right: 15px;
+
+}
+
+.btn-lists{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+button{
+  border-radius: 10px;
+  width: 50px;
+  padding: 5px;
+  margin: 5px;
+}
+
+.checked {
+  text-decoration: line-through;
+}
