@@ -9,20 +9,31 @@ import { ListService } from './list.service';
 })
 export class ListItemService {
 
-  constructor(private listsService: ListService) { }
+  //public itemsArray : Item[] = [];
 
+  constructor(private listsService: ListService) { }
 
   private itemsSubject: BehaviorSubject<Item[]> = new BehaviorSubject<Item[]>([]);
 
-  // Update itemsSubject based on the provided list
-  updateItemsSubject(list: List): void {
+  GetAllItems(list: List): Observable<Item[]> {
+    this.itemsSubject.next(list.Items); // Update itemsSubject with the items of the provided list
+    return this.itemsSubject.asObservable();
+  }
+
+  AddItem(newItem: Item, list: List): void {
+    list.Items.push(newItem);
+    this.itemsSubject.next(list.Items); //Emit the updated list of lists to any subscribers of listsSubject.
+  }
+
+  RemoveItem(indexItem: number, list: List): void{
+    list.Items.splice(indexItem, 1);
     this.itemsSubject.next(list.Items);
   }
 
-  GetAllItems(list: List): Observable<Item[]> {
-    console.log("GetAllItems called");
-    // Update itemsSubject with the items of the provided list
-    this.updateItemsSubject(list);
-    return this.itemsSubject.asObservable();
+  UpdateItem(indexItem: number, list: List, updatedItem: Item): void {
+    list.Items[indexItem] = updatedItem;
+    this.itemsSubject.next(list.Items);
   }
-}
+ }
+
+

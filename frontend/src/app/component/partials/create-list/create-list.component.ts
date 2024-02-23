@@ -2,6 +2,7 @@ import { Component, ElementRef, ViewChild, inject } from '@angular/core';
 import { ListService } from '../../../services/list.service';
 import { Item } from '../../../Shared/Models/Item';
 import { List } from '../../../Shared/Models/List';
+import { ListItemService } from '../../../services/list-item.service';
 
 @Component({
   selector: 'app-create-list',
@@ -13,10 +14,11 @@ import { List } from '../../../Shared/Models/List';
 export class CreateListComponent {
 
   @ViewChild('inputName') public inputListName!: ElementRef;
+
   listStatus: boolean = false;
   listItems: Item[] = [];
 
-  constructor(private listService: ListService) {}
+  constructor(private listService: ListService, private listItemsService: ListItemService ) {}
 
   OnCreateList(listName: string): void {
     const newlistID = this.listService.listsArray.length +1;
@@ -28,13 +30,4 @@ export class CreateListComponent {
     console.log(newList);
   }
 
-  OnCreateItem(itemName: string): void {
-    const newlistID = this.listService.listsArray.length +1;
-    const newList = new List(newlistID, itemName, this.listItems);
-    this.listService.AddList(newList);
-
-    this.inputListName.nativeElement.value = '';
-
-    console.log(newList);
-  }
 }

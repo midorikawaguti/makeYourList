@@ -1,10 +1,10 @@
-import { Component, ElementRef, ViewChild, signal } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { List } from '../../../Shared/Models/List';
 
 import { ListService } from '../../../services/list.service';
-import { Observable, map } from 'rxjs';
+import { Observable } from 'rxjs';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 

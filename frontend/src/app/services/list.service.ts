@@ -10,19 +10,19 @@ export class ListService {
 
   public listsArray: List[] = [
     new List(1, 'Grocery',[
-      new Item('Rice', new Date()),
-      new Item('Corn', new Date()),
-      new Item('Pasta', new Date())
+      new Item(1,'Rice', new Date()),
+      new Item(2,'Corn', new Date()),
+      new Item(3,'Pasta', new Date())
     ]),
     new List(2, 'ToDo', [
-      new Item ('Send E-mail', new Date()),
-      new Item ('Pay Bills', new Date()),
-      new Item ('Read Article', new Date())
+      new Item (1,'Send E-mail', new Date()),
+      new Item (2,'Pay Bills', new Date()),
+      new Item (3,'Read Article', new Date())
     ]),
     new List(3,'Books', [
-      new Item ('Harry Potter', new Date()),
-      new Item ('Cinderella', new Date()),
-      new Item ('Lion King', new Date())
+      new Item (1,'Harry Potter', new Date()),
+      new Item (2,'Cinderella', new Date()),
+      new Item (3,'Lion King', new Date())
     ]),
 
   ]
@@ -50,7 +50,4 @@ export class ListService {
     this.listsArray[index] = updatedList;
     this.listsSubject.next(this.listsArray);
   }
-
-
-
 }

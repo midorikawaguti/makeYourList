@@ -1,6 +1,53 @@
-<div *ngIf="(itemsArr$ | async) as items">
+<app-create-item></app-create-item>
+<div *ngIf="(itemsArr$ | async) as itemsArr">
   <ul>
-    <li *ngFor="let item of items">{{ item.ItemName }}</li>
+    <li *ngFor="let item of itemsArr">
+
+    <div class="name-lists">
+      <ng-container *ngIf="!item.IsEditing; else editInput">
+          <div [ngClass]="{ 'checkList':item.ItemStatus }"></div>
+
+        <div class="item-container">
+          <input type="checkbox"
+          placeholder="List Name"
+          [(ngModel)]="item.ItemStatus"
+          (change)="onCheckItem(item)">
+
+
+          <span [ngClass]="{'checked': item.ItemStatus}">
+            {{item.ItemName }}
+
+          </span>
+        </div>
+
+      </ng-container>
+
+      <ng-template #editInput>
+        <input type="text"
+               placeholder="New List Name"
+               [value]="item.ItemName"
+               (blur)="onSaveEditedItem(item.ItemID, editName.value)"
+               (keyup.enter)="onSaveEditedItem(item.ItemID, editName.value)"
+               #editName>
+      </ng-template>
+
+    </div>
+
+    <div class="btn-lists">
+      <button
+        class="btn btn-danger-circle"
+        title="Delete List Title"
+        (click)="onRemoveItem(item.ItemID)"> X
+      </button>
+
+      <button
+      class="btn btn-edit-circle"
+      title="Edit List Title"
+      (click)="onEditItem(item)">
+    </button>
+
+    </div>
+    </li>
   </ul>
 </div>
 
